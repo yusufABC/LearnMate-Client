@@ -71,10 +71,10 @@ const SignIn = () => {
                     <Lottie style={{ width: '300px' }} animationData={signInLottie} loop={true}></Lottie>
 
                 </div>
-                <div className="mx-auto my-20 w-full  max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
+                <div className="mx-auto my-20 w-full   max-w-md p-8 space-y-3 rounded-xl bg-gray-50 text-gray-800">
                     <h1 className="text-5xl font-bold">Sign In now!</h1>
                     <form onSubmit={handleSubmit} >
-                        <fieldset className="fieldset">
+                        <fieldset className="fieldset space-y-2.5">
                             <label className="label">Email</label>
                             <input type="email" name='email' className="input" placeholder="Email" />
                             <label className="label" >Password</label>

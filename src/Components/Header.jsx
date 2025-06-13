@@ -9,7 +9,7 @@ const {user,handleSignOut}=use(AuthContext)
 const navigate=useNavigate()
   return (
     <nav className="relative bg-slate-50 shadow dark:bg-gray-800 font-poppins">
-      <div className="container px-6 py-4 mx-auto">
+      <div className="container px-6  mx-auto">
         <div className="lg:flex lg:items-center lg:justify-between">
           <div className="flex items-center justify-between">
             <a href="#">

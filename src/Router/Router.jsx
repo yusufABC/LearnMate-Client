@@ -4,7 +4,6 @@ import {
   
 } from "react-router";
 import MainLayout from '../Layout/MainLayout';
-import Home from '../pages/Home';
 import SignUp from '../pages/SignUp';
 import SignIn from '../pages/SignIn';
 import PrivateRoute from './PrivateRoute';
@@ -12,6 +11,7 @@ import AddCourse from '../pages/AddCourse';
 import EditCourse from '../pages/EditCourse';
 import ManageCourse from '../pages/ManageCourse';
 import CourseDetails from '../pages/CourseDetails';
+import Home from '../pages/Home/Home';
 
 export const router = createBrowserRouter([
   {
