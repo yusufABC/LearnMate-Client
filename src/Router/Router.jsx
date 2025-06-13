@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoute';
 import AddCourse from '../pages/AddCourse';
 import EditCourse from '../pages/EditCourse';
 import ManageCourse from '../pages/ManageCourse';
+import CourseDetails from '../pages/CourseDetails';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
         {
           path:'signIn',
           Component:SignIn
+        },
+        {
+          path:'courseDetails',
+          Component:CourseDetails
         },
         {
           path:'addCourse',
