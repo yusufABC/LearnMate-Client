@@ -10,8 +10,8 @@ const MainLayout = () => {
     return (
         <div  id={theme } className=''>
             <Header></Header>
-            <Banner></Banner>
-            <div className='max-w-11/12 mx-auto'>
+          
+            <div className=''>
 
             <div className="[font-family:'Poppins',sans-serif]">
 

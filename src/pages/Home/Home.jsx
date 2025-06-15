@@ -3,6 +3,7 @@ import Banner from './Banner';
 import axios from 'axios';
 import CoursesSec from './CourseLoad/CoursesSec';
 import Students from './StudentReviewsec/Students';
+import HowItWorks from './HowItWorks';
 
 const Home = () => {
     const [courses, setCourses] = useState([])
@@ -24,8 +25,8 @@ const Home = () => {
     return (
         <>
             
-
-            <div className='mt-10'>
+                  <Banner className='w-full'></Banner>
+            <div className='mt-10  max-w-11/12 mx-auto'>
                 <Suspense fallback={<h2>Loading Hot Course</h2>}>
                     <CoursesSec key={courses._id} courses={courses}></CoursesSec>
                 </Suspense>
@@ -38,6 +39,10 @@ const Home = () => {
                     <Students students={students}></Students>
                 </Suspense>
 
+            </div>
+
+            <div>
+                <HowItWorks></HowItWorks>
             </div>
         </>
     );
