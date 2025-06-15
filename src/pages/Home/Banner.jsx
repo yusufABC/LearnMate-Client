@@ -32,12 +32,12 @@ const Banner = () => {
         arrows: false,
     };
     return (
-        <div className="relative w-full h-[80vh] overflow-hidden">
+        <div className="relative h-screen w-full  overflow-hidden">
             <Slider {...settings}>
                 {slides.map((slide, i) => (
                     <div key={i}>
                         <div
-                            className="w-full h-[80vh] bg-cover bg-center relative"
+                            className="w-full h-screen bg-cover bg-center relative"
                             style={{ backgroundImage: `url(${slide.bg})` }}
                         >
                          {/* animate  */}

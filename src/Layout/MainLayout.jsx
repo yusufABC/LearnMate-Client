@@ -3,14 +3,16 @@ import Header from '../Components/Header';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Footer';
 import { AuthContext } from '../context/AuthContext';
+import Banner from '../pages/Home/Banner';
 
 const MainLayout = () => {
     const {theme}=use(AuthContext)
     return (
-        <div  id={theme } className='min-h-screen'>
-            <div className={`max-w-11/12 mx-auto ${ theme === 'dark' ? 'text-white' : 'text-black' }`} >
-
+        <div  id={theme } className=''>
             <Header></Header>
+            <Banner></Banner>
+            <div className='max-w-11/12 mx-auto'>
+
             <div className="[font-family:'Poppins',sans-serif]">
 
             <Outlet></Outlet>

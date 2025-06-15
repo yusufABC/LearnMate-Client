@@ -14,7 +14,7 @@ const navigate=useNavigate()
           <div className="flex items-center justify-between">
             <a href="#">
               <img
-                className="w-auto h-30 "
+                className="w-auto h-15 "
                 src='logo.png'
                 alt="Logo"
               />
@@ -83,8 +83,8 @@ const navigate=useNavigate()
 
 
 
-            {
-              user ?<>
+            
+          
               
                         <NavLink to={'/addCourse'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
@@ -95,9 +95,9 @@ const navigate=useNavigate()
                         <NavLink to={'/manageCourse'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
                       }>  Manage Course</NavLink>
-              </>
-              :''
-            }
+         
+              
+        
             </div>
 
             <div className="flex items-center mt-4 lg:mt-0">
