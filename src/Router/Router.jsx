@@ -9,10 +9,11 @@ import SignIn from '../pages/SignIn';
 import PrivateRoute from './PrivateRoute';
 import AddCourse from '../pages/AddCourse';
 import EditCourse from '../pages/EditCourse';
-import CourseDetails from '../pages/CourseDetails';
+import CourseDetails from '../pages/CourseDetails/CourseDetails';
 import Home from '../pages/Home/Home';
 import FindCourse from '../pages/Find Course/FindCourse';
 import ManageCourse from '../pages/Manage Courses/ManageCourse';
+import MyEnrolledCourses from '../pages/MyEnrolledCourses';
 
 export const router = createBrowserRouter([
   {
@@ -54,15 +55,23 @@ export const router = createBrowserRouter([
       },
   
       {
-        path: 'editCourse',
+        path: 'editCourse/:id',
         element: <PrivateRoute>
           <EditCourse></EditCourse>
-        </PrivateRoute>
+          
+        </PrivateRoute>,
+          loader:({params})=>fetch(`http://localhost:3000/courses-find/${params.id}`)
       },
       {
         path: 'manageCourse',
         element: <PrivateRoute>
          <ManageCourse></ManageCourse>
+        </PrivateRoute>
+      },
+      {
+        path: 'myEnrollment',
+        element: <PrivateRoute>
+         <MyEnrolledCourses></MyEnrolledCourses>
         </PrivateRoute>
       },
 

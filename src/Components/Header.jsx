@@ -89,9 +89,9 @@ const navigate=useNavigate()
                         <NavLink to={'/addCourse'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
                       }>  Add Course</NavLink>
-                        <NavLink to={'/editCourse'} className={({ isActive }) =>
+                        <NavLink to={'/myEnrollment'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
-                      }>  Edit Course</NavLink>
+                      }>  My Enrolled Courses</NavLink>
                         <NavLink to={'/manageCourse'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
                       }>  Manage Course</NavLink>

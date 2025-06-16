@@ -2,11 +2,12 @@ import React, { use, useState } from 'react';
 import { NotebookPen, UserX } from 'lucide-react';
 import axios from 'axios';
 import Swal from 'sweetalert2'; 
+import { useNavigate } from 'react-router';
 
 const ManageCoursesList = ({ myCoursePromise }) => {
   const initialCourses = use(myCoursePromise);
   const [courses, setCourses] = useState(initialCourses);
-
+const navigate=useNavigate()
   const handleDelete = (course) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -64,7 +65,7 @@ const ManageCoursesList = ({ myCoursePromise }) => {
               <td className="p-5 border border-blue-200 flex justify-center gap-3">
                 <button
                   className="text-blue-500 hover:text-gray-600 px-3 py-1 rounded"
-               
+                  onClick={() => navigate(`/editCourse/${course._id}`)}
                 >
                   <NotebookPen />
                 </button>
