@@ -9,10 +9,10 @@ import SignIn from '../pages/SignIn';
 import PrivateRoute from './PrivateRoute';
 import AddCourse from '../pages/AddCourse';
 import EditCourse from '../pages/EditCourse';
-import ManageCourse from '../pages/ManageCourse';
 import CourseDetails from '../pages/CourseDetails';
 import Home from '../pages/Home/Home';
 import FindCourse from '../pages/Find Course/FindCourse';
+import ManageCourse from '../pages/Manage Courses/ManageCourse';
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +38,7 @@ export const router = createBrowserRouter([
         Component:FindCourse
 
       },
+ 
       {
          path: 'courseDetails/:_id',
   Component: CourseDetails,
@@ -51,6 +52,7 @@ export const router = createBrowserRouter([
           <AddCourse></AddCourse>
         </PrivateRoute>
       },
+  
       {
         path: 'editCourse',
         element: <PrivateRoute>
@@ -60,7 +62,7 @@ export const router = createBrowserRouter([
       {
         path: 'manageCourse',
         element: <PrivateRoute>
-          <ManageCourse></ManageCourse>
+         <ManageCourse></ManageCourse>
         </PrivateRoute>
       },
 
