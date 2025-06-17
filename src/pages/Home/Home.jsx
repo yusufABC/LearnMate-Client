@@ -35,7 +35,14 @@ const Home = () => {
     }, [])
 
     if(loading || loading2 ){
-        return <div>loading</div>
+        return <div className="flex items-center justify-center min-h-screen">
+      <div className="flex gap-2">
+        <span className="loading loading-ring loading-xl"></span>
+        <span className="loading loading-ring loading-xl"></span>
+        <span className="loading loading-ring loading-xl"></span>
+        <span className="loading loading-ring loading-xl"></span>
+      </div>
+    </div>
     }
     return (
         <>
