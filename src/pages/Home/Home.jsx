@@ -4,6 +4,7 @@ import axios from 'axios';
 import CoursesSec from './CourseLoad/CoursesSec';
 import Students from './StudentReviewsec/Students';
 import HowItWorks from './HowItWorks';
+import PopularCardsSec from './PopularCardsSec';
 
 const Home = () => {
     const [courses, setCourses] = useState([])
@@ -25,13 +26,18 @@ const Home = () => {
     return (
         <>
             
-                  <Banner className='w-full'></Banner>
+                  <Banner className=' w-full'></Banner>
             <div className='mt-10  max-w-11/12 mx-auto'>
                 <Suspense fallback={<h2>Loading Hot Course</h2>}>
                     <CoursesSec key={courses._id} courses={courses}></CoursesSec>
                 </Suspense>
                 
             </div>
+
+               <div>
+      <h1 className="text-5xl font-bold text-center my-15">🔥Popular Courses</h1>
+     <PopularCardsSec></PopularCardsSec>
+    </div>
 
 
             <div className='mt-10'>

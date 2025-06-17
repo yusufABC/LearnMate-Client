@@ -14,10 +14,12 @@ import Home from '../pages/Home/Home';
 import FindCourse from '../pages/Find Course/FindCourse';
 import ManageCourse from '../pages/Manage Courses/ManageCourse';
 import MyEnrolledCourses from '../pages/MyEnrolledCourses';
+import NotFound from '../pages/NotFound';
 
 export const router = createBrowserRouter([
+
   {
-    // errorElement:<NotFound></NotFound>,
+    errorElement:<NotFound></NotFound>,
     path: "/",
     Component: MainLayout,
 

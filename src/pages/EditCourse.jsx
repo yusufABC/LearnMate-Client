@@ -8,7 +8,7 @@ const EditCourse = () => {
     const loadedPost = useLoaderData();
 console.log(loadedPost)
     const { _id, title, description, duration, instructor,email,imageUrl } = loadedPost
-    const { user } = UseAuth()
+    // const { user } = UseAuth()
     const handleSubmit = (e) => {
         e.preventDefault();
         // handle form submission here
@@ -43,7 +43,7 @@ console.log(loadedPost)
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-white px-4">
             <div className="w-full max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
-                <h2 className="text-2xl font-bold text-center mb-6 text-indigo-600">Add New Course</h2>
+                <h2 className="text-2xl font-bold text-center mb-6 text-indigo-600">Edit Your Course</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div className='flex gap-2 '>
 
@@ -119,7 +119,7 @@ console.log(loadedPost)
                         type="submit"
                         className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300"
                     >
-                        Add Course
+                        Updated!
                     </button>
                 </form>
             </div>

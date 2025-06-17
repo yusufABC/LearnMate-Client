@@ -5,13 +5,16 @@ import FindCourseLoad from './FindCourseLoad';
 const FindCourse = () => {
     const [courses, setCourses] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/courses-find')
+        axios.get('http://localhost:3000/courses')
             .then(res => setCourses(res.data)
             )
 
     }, [])
 
     return (
+        <>
+       
+            <h2 className='text-5xl text-blue-400 text-center my-15'>Find Your Course</h2>
         <div className='grid grid-cols-3 gap-6'>
             <Suspense fallback={<h2>Loading Hot Course</h2>}>
             
@@ -23,6 +26,7 @@ const FindCourse = () => {
             </Suspense>
 
         </div>
+         </>
     );
 };
 

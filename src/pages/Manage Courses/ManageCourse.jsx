@@ -8,7 +8,7 @@ const ManageCourse = () => {
     return (
         <div>
           <Suspense fallback={<p>Loading...</p>}>
-    <ManageCoursesList myCoursePromise={myCoursePromise(user.email)} />
+    <ManageCoursesList myCoursePromise={myCoursePromise(user.email,user.accessToken)} />
 </Suspense>
         </div>
     );

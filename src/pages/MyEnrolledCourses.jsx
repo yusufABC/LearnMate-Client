@@ -10,11 +10,15 @@ const MyEnrolledCourses = () => {
     useEffect(() => {
         if (user?.email) {
             axios
-                .get(`http://localhost:3000/my-enrollments?email=${user.email}`)
+                .get(`http://localhost:3000/my-enrollments?email=${user.email}`,{
+                       headers:{
+            authorization:`Bearer ${user.accessToken}`
+           }
+                })
                 .then((res) => setEnrollments(res.data))
                 .catch((err) => console.error(err));
         }
-    }, [user?.email]);
+    }, [user?.email,user.accessToken]);
 
     const handleRemove = (id) => {
         const swalWithBootstrapButtons = Swal.mixin({
