@@ -1,9 +1,10 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { NavLink } from "react-router";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200  font-poppins">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <footer className="bg-slate-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 px-10 py-12 font-poppins">
+      <div className="max-w-7xl mx-auto justify-items-center  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         
         {/* Column 1: Logo + Slogan */}
         <div>
@@ -17,9 +18,9 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="/" className="hover:text-blue-500 transition">Home</a></li>
-            <li><a href="/courses" className="hover:text-blue-500 transition">Courses</a></li>
-            <li><a href="/signup" className="hover:text-blue-500 transition">Sign Up</a></li>
+         <li><NavLink to='/' className="hover:text-blue-500 transition">Home</NavLink></li>
+          <li><NavLink to='/addCourse' className="hover:text-blue-500 transition">Add Course</NavLink></li>
+            <li><NavLink to='/findCourse' className="hover:text-blue-500 transition">Find Course</NavLink></li>
           </ul>
         </div>
 
