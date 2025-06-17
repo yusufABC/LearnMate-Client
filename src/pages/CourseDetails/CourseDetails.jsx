@@ -22,33 +22,44 @@ const CourseDetails = () => {
     }, [_id, user?.email]);
 
 
-    const handleEnroll = () => {
-        const enrollData = {
-            courseId: _id,
-            email: user.email,
-             title:title,
-            description:description
-        };
+  const handleToggleEnroll = () => {
+  const enrollData = {
+    courseId: _id,
+    email: user.email,
+    title,
+    description
+  };
 
-        axios.post('http://localhost:3000/courses-enroll', enrollData)
-            .then(res => {
-                if (res.data.insertedId) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Enrollment Successful!',
-                        timer: 2000,
-                        showConfirmButton: false
-                    });
-                    setIsEnrolled(true);
-                }
-            })
-            .catch(err => {
-                Swal.fire({
-                    icon: 'error',
-                    title: err.response?.data?.message || 'Enrollment failed'
-                });
-            });
-    };
+  axios.post('http://localhost:3000/courses-toggle-enroll', enrollData)
+    .then(res => {
+      if (res.data.action === 'added') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Enrolled successfully!',
+          timer: 2000,
+          showConfirmButton: false
+        });
+        setIsEnrolled(true);
+     
+      } else if (res.data.action === 'removed') {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Unenrolled from the course Successfull.',
+          timer: 2000,
+          showConfirmButton: false
+        });
+        setIsEnrolled(false);
+     
+      }
+    })
+    .catch(err => {
+      Swal.fire({
+        icon: 'error',
+        title: err.response?.data?.message || 'Action failed'
+      });
+    });
+};
+
 
     if (!course) {
         return <p className="text-center mt-10">Loading course details...</p>;
@@ -65,28 +76,25 @@ const CourseDetails = () => {
                 <p className="text-gray-600">Instructor: {instructor}</p>
                 <p className="text-gray-500">Duration: {duration} hours</p>
                 <p>{description}</p>
-                {!user?.email ? (
-                    <>
-                        <button
-                            disabled
-                            className="bg-gray-400 cursor-not-allowed text-white px-4 py-2 rounded"
-                        >
-                            Enroll Now
-                        </button>
-                        <p className="text-sm text-red-500 mt-2">Please login to enroll in this course.</p>
-                    </>
-                ) : isEnrolled ? (
-                    <button className="bg-gray-400 text-white px-4 py-2 rounded" disabled>
-                        Already Enrolled
-                    </button>
-                ) : (
-                    <button
-                        onClick={handleEnroll}
-                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                    >
-                        Enroll Now
-                    </button>
-                )}
+           {!user?.email ? (
+  <>
+    <button disabled className="bg-gray-400 cursor-not-allowed text-white px-4 py-2 rounded">
+      Enroll Now
+    </button>
+    <p className="text-sm text-red-500 mt-2">Please login to enroll in this course.</p>
+  </>
+) : (
+  <>
+    <button
+      onClick={handleToggleEnroll}
+      className={`px-4 py-2 rounded text-white ${isEnrolled ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'}`}
+    >
+      {isEnrolled ? 'Unenroll' : 'Enroll Now'}
+    </button>
+  
+  </>
+)}
+
             </div>
         </div>
     );
