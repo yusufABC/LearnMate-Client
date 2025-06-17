@@ -63,7 +63,7 @@ const MyEnrolledCourses = () => {
 
     return (
         <table
-            className="table-auto text-center w-full"
+            className="my-20 table-auto text-center w-full"
             style={{ borderCollapse: 'separate', borderSpacing: '0 10px' }}
         >
             <thead>
@@ -71,7 +71,7 @@ const MyEnrolledCourses = () => {
                     <th>#</th>
                     <th>Course Title</th>
                     <th>Course ID</th>
-                    <th>Description</th>
+                    <th className="hidden md:table-cell">Description</th>
                     <th>Remove</th>
                 </tr>
             </thead>
@@ -81,7 +81,7 @@ const MyEnrolledCourses = () => {
                         <td>{index + 1}</td>
                         <td>{item.title || 'Title Missing'}</td>
                         <td>{item.courseId}</td>
-                        <td>{item.description}</td>
+                        <td  className="hidden md:table-cell">{item.description}</td>
                         <td>
                             <button
                                 onClick={() => handleRemove(item._id)}

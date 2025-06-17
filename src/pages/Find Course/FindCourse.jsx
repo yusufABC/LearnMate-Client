@@ -15,7 +15,7 @@ const FindCourse = () => {
         <>
        
             <h2 className='text-5xl text-blue-400 text-center my-15'>Find Your Course</h2>
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid md:grid-cols-3 justify-items-center gap-6 my-15 md:my-10'>
             <Suspense fallback={<h2>Loading Hot Course</h2>}>
             
                 {

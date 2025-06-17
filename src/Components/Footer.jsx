@@ -2,7 +2,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200 px-8 py-12 font-poppins">
+    <footer className="bg-slate-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200  font-poppins">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         
         {/* Column 1: Logo + Slogan */}

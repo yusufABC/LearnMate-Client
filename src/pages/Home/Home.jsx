@@ -28,7 +28,7 @@ const Home = () => {
         useEffect(() => {
         axios.get('https://assignment-11-server-sigma-one.vercel.app/students')
             .then(res =>{ setStudents(res.data)
-                setLoading2
+                setLoading2(false)
             }
             )
 
@@ -48,7 +48,7 @@ const Home = () => {
         <>
             
                   <Banner className=' w-full'></Banner>
-            <div className='mt-10  max-w-11/12 mx-auto'>
+            <div className='my-10  max-w-11/12 mx-auto'>
                 <Suspense fallback={<span className="loading loading-bars loading-md"></span>}>
                     <CoursesSec key={courses._id} courses={courses}></CoursesSec>
                 </Suspense>
@@ -56,7 +56,7 @@ const Home = () => {
             </div>
 
                <div>
-      <h1 className="text-5xl font-bold text-center my-15">🔥Popular Courses</h1>
+      <h1 className="text-5xl font-bold text-center my-15 ">🔥Popular Courses</h1>
      <PopularCardsSec></PopularCardsSec>
     </div>
 

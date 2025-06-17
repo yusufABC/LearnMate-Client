@@ -11,7 +11,7 @@ const StudentCard = ({ student }) => {
       viewport={{ once: true }}
       className="px-4"
     >
-      <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300 h-full">
+      <div className="bg-white rounded-xl shadow hover:shadow-lg transition duration-300 h-full">
         <img
           src={student.image}
           alt={student.name}

@@ -34,7 +34,7 @@ const AddCourseForm = () => {
             <div className="w-full max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
                 <h2 className="text-2xl font-bold text-center mb-6 text-indigo-600">Add New Course</h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className='flex gap-2 '>
+                    <div className='flex flex-col md:flex-row gap-2 '>
 
                         <div className='flex-1'>
                             <label className=" text-sm font-medium text-gray-700">Course Title</label>
@@ -52,7 +52,7 @@ const AddCourseForm = () => {
                         </div>
                     </div>
 
-                    <div className='flex md:flex-row gap-2 flex-col items-center '>
+                    <div className='flex flex-col md:flex-row gap-2 '>
                         <div className='flex-1'>
                             <label className="block text-sm font-medium text-gray-700">Duration (in hours)</label>
                             <input

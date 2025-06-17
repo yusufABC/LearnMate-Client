@@ -32,7 +32,7 @@ const Banner = () => {
         arrows: false,
     };
     return (
-        <div className="relative h-screen w-full  overflow-hidden">
+        <div className="relative h-screen   overflow-hidden">
             <Slider {...settings}>
                 {slides.map((slide, i) => (
                     <div key={i}>

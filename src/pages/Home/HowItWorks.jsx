@@ -28,8 +28,8 @@ const HowItWorks = () => {
 
 
     return (
-         <section className="py-20 bg-gray-50 px-4 md:px-10">
-      <div className="max-w-6xl mx-auto text-center">
+         <section className="py-20 bg-gray-50  ">
+      <div className="max-w-5xl  mx-auto text-center">
         <motion.h2
           className="text-4xl font-bold mb-6"
           initial={{ opacity: 0, y: -30 }}
