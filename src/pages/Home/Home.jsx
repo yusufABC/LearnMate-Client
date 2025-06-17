@@ -5,15 +5,21 @@ import CoursesSec from './CourseLoad/CoursesSec';
 import Students from './StudentReviewsec/Students';
 import HowItWorks from './HowItWorks';
 import PopularCardsSec from './PopularCardsSec';
+import { div } from 'framer-motion/client';
 
 
 
 const Home = () => {
+    const [loading,setLoading]=useState(true)
+    const [loading2,setLoading2]=useState(true)
     const [courses, setCourses] = useState([])
     const [students, setStudents] = useState([])
     useEffect(() => {
         axios.get('https://assignment-11-server-sigma-one.vercel.app/courses')
-            .then(res => setCourses(res.data)
+            .then(res => {setCourses(res.data ) 
+                setLoading(false)
+                console.log('setLoading')
+            }
             )
 
     }, [])
@@ -21,10 +27,16 @@ const Home = () => {
 
         useEffect(() => {
         axios.get('https://assignment-11-server-sigma-one.vercel.app/students')
-            .then(res => setStudents(res.data)
+            .then(res =>{ setStudents(res.data)
+                setLoading2
+            }
             )
 
     }, [])
+
+    if(loading || loading2 ){
+        return <div>loading</div>
+    }
     return (
         <>
             
