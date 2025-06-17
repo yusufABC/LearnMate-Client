@@ -13,10 +13,10 @@ const CourseDetails = () => {
 
 
     useEffect(() => {
-        if (!course||!user?.email) {
+        if (!course || !user?.email) {
 
 
-            axios.get(`http://localhost:3000/courses-enroll?courseId=${_id}&email=${user.email}`)
+            axios.get(`https://assignment-11-server-sigma-one.vercel.app/courses-enroll?courseId=${_id}&email=${user.email}`)
                 .then(res => {
                     if (res.data?.enrolled) setIsEnrolled(true);
                 })
@@ -24,21 +24,21 @@ const CourseDetails = () => {
         }
 
 
-              axios
-        .get(`http://localhost:3000/my-enrollments?email=${user.email}`)
-        .then((res) => {
-          setTotalEnrollments(res.data.length);
-        })
-        .catch((err) => {
-          console.log('Error fetching enrollments count:', err);
-        });
-    
+        axios
+            .get(`https://assignment-11-server-sigma-one.vercel.app/my-enrollments?email=${user.email}`)
+            .then((res) => {
+                setTotalEnrollments(res.data.length);
+            })
+            .catch((err) => {
+                console.log('Error fetching enrollments count:', err);
+            });
+
 
 
     }, [_id, user?.email]);
 
 
-      const disableEnroll = !isEnrolled && totalEnrollments >= 3;
+    const disableEnroll = !isEnrolled && totalEnrollments >= 3;
 
     const handleToggleEnroll = () => {
         const enrollData = {
@@ -48,7 +48,7 @@ const CourseDetails = () => {
             description
         };
 
-        axios.post('http://localhost:3000/courses-toggle-enroll', enrollData)
+        axios.post('https://assignment-11-server-sigma-one.vercel.app/courses-toggle-enroll', enrollData)
             .then(res => {
                 if (res.data.action === 'added') {
                     Swal.fire({
@@ -58,7 +58,7 @@ const CourseDetails = () => {
                         showConfirmButton: false
                     });
                     setIsEnrolled(true);
-                        setTotalEnrollments((prev) => prev + 1);
+                    setTotalEnrollments((prev) => prev + 1);
 
                 } else if (res.data.action === 'removed') {
                     Swal.fire({
@@ -68,7 +68,7 @@ const CourseDetails = () => {
                         showConfirmButton: false
                     });
                     setIsEnrolled(false);
-                      setTotalEnrollments((prev) => prev - 1);
+                    setTotalEnrollments((prev) => prev - 1);
                 }
             })
             .catch(err => {

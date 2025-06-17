@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
       {
          path: 'courseDetails/:_id',
   Component: CourseDetails,
-  loader: ({ params }) => fetch(`http://localhost:3000/tutorials/${params._id}`)
+  loader: ({ params }) => fetch(`https://assignment-11-server-sigma-one.vercel.app/tutorials/${params._id}`)
 
       },
 
@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
           <EditCourse></EditCourse>
           
         </PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:3000/courses-find/${params.id}`)
+          loader:({params})=>fetch(`https://assignment-11-server-sigma-one.vercel.app/courses-find/${params.id}`)
       },
       {
         path: 'manageCourse',

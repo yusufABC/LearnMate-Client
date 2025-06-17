@@ -1,5 +1,5 @@
     export const myCoursePromise=(email,accessToken)=>{
-        return fetch(`http://localhost:3000/courses-find?email=${email}`,{
+        return fetch(`https://assignment-11-server-sigma-one.vercel.app/courses-find?email=${email}`,{
            headers:{
             authorization:`Bearer ${accessToken}`
            }

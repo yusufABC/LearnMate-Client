@@ -16,7 +16,7 @@ console.log(loadedPost)
         const formData = new FormData(form)
         const updatePost = Object.fromEntries(formData.entries())
 
-  axios.put(`http://localhost:3000/courses-find/${_id}`, updatePost)
+  axios.put(`https://assignment-11-server-sigma-one.vercel.app/courses-find/${_id}`, updatePost)
 
             .then(res => {
                 console.log(res)

@@ -7,7 +7,7 @@ const PopularCardsSec = () => {
     const [courses,setCourses]=useState([])
 
     useEffect(()=>{
-        axios.get('http://localhost:3000/popular-courses')
+        axios.get('https://assignment-11-server-sigma-one.vercel.app/popular-courses')
         .then(res=>setCourses(res.data))
     },[])
     return (

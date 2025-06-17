@@ -12,7 +12,7 @@ const AddCourseForm = () => {
         const formData = new FormData(form)
         const allData = Object.fromEntries(formData.entries())
 
-           axios.post('http://localhost:3000/courses',allData)
+           axios.post('https://assignment-11-server-sigma-one.vercel.app/courses',allData)
                               
                                     .then(res => {
                                         console.log(res)

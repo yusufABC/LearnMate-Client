@@ -27,7 +27,7 @@ const navigate=useNavigate()
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/courses-find/${course._id}`)
+        axios.delete(`https://assignment-11-server-sigma-one.vercel.app/courses-find/${course._id}`)
           .then(res => {
             if (res.data.deletedCount) {
               setCourses(prev => prev.filter(item => item._id !== course._id));

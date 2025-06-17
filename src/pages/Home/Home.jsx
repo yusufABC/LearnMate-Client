@@ -6,11 +6,13 @@ import Students from './StudentReviewsec/Students';
 import HowItWorks from './HowItWorks';
 import PopularCardsSec from './PopularCardsSec';
 
+
+
 const Home = () => {
     const [courses, setCourses] = useState([])
     const [students, setStudents] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/courses')
+        axios.get('https://assignment-11-server-sigma-one.vercel.app/courses')
             .then(res => setCourses(res.data)
             )
 
@@ -18,7 +20,7 @@ const Home = () => {
 
 
         useEffect(() => {
-        axios.get('http://localhost:3000/students')
+        axios.get('https://assignment-11-server-sigma-one.vercel.app/students')
             .then(res => setStudents(res.data)
             )
 
@@ -28,7 +30,7 @@ const Home = () => {
             
                   <Banner className=' w-full'></Banner>
             <div className='mt-10  max-w-11/12 mx-auto'>
-                <Suspense fallback={<h2>Loading Hot Course</h2>}>
+                <Suspense fallback={<span className="loading loading-bars loading-md"></span>}>
                     <CoursesSec key={courses._id} courses={courses}></CoursesSec>
                 </Suspense>
                 
@@ -41,7 +43,7 @@ const Home = () => {
 
 
             <div className='mt-10'>
-                <Suspense fallback={<h2>Loading Students Review</h2>}>
+                <Suspense fallback={<span className="loading loading-bars loading-md"></span>}>
                     <Students students={students}></Students>
                 </Suspense>
 

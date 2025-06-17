@@ -5,7 +5,7 @@ import FindCourseLoad from './FindCourseLoad';
 const FindCourse = () => {
     const [courses, setCourses] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/courses')
+        axios.get('https://assignment-11-server-sigma-one.vercel.app/courses')
             .then(res => setCourses(res.data)
             )
 

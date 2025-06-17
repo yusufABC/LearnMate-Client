@@ -10,15 +10,15 @@ const MyEnrolledCourses = () => {
     useEffect(() => {
         if (user?.email) {
             axios
-                .get(`http://localhost:3000/my-enrollments?email=${user.email}`,{
-                       headers:{
-            authorization:`Bearer ${user.accessToken}`
-           }
+                .get(`https://assignment-11-server-sigma-one.vercel.app/my-enrollments?email=${user.email}`, {
+                    headers: {
+                        authorization: `Bearer ${user.accessToken}`
+                    }
                 })
                 .then((res) => setEnrollments(res.data))
                 .catch((err) => console.error(err));
         }
-    }, [user?.email,user.accessToken]);
+    }, [user?.email, user.accessToken]);
 
     const handleRemove = (id) => {
         const swalWithBootstrapButtons = Swal.mixin({
@@ -42,7 +42,7 @@ const MyEnrolledCourses = () => {
             .then((result) => {
                 if (result.isConfirmed) {
                     axios
-                        .delete(`http://localhost:3000/courses-enroll/${id}`)
+                        .delete(`https://assignment-11-server-sigma-one.vercel.app/courses-enroll/${id}`)
                         .then((res) => {
                             if (res.data.deletedCount) {
                                 setEnrollments((prev) => prev.filter((item) => item._id !== id));
