@@ -8,57 +8,76 @@ const CourseDetails = () => {
     const course = useLoaderData();
     const { user } = UseAuth();
     const [isEnrolled, setIsEnrolled] = useState(false);
+    const [totalEnrollments, setTotalEnrollments] = useState(0);
     const { _id, title, description, imageUrl, instructor, duration } = course;
 
 
     useEffect(() => {
-        if (user?.email) {
+        if (!course||!user?.email) {
+
+
             axios.get(`http://localhost:3000/courses-enroll?courseId=${_id}&email=${user.email}`)
                 .then(res => {
                     if (res.data?.enrolled) setIsEnrolled(true);
                 })
                 .catch(err => console.log(err));
         }
+
+
+              axios
+        .get(`http://localhost:3000/my-enrollments?email=${user.email}`)
+        .then((res) => {
+          setTotalEnrollments(res.data.length);
+        })
+        .catch((err) => {
+          console.log('Error fetching enrollments count:', err);
+        });
+    
+
+
     }, [_id, user?.email]);
 
 
-  const handleToggleEnroll = () => {
-  const enrollData = {
-    courseId: _id,
-    email: user.email,
-    title,
-    description
-  };
+      const disableEnroll = !isEnrolled && totalEnrollments >= 3;
 
-  axios.post('http://localhost:3000/courses-toggle-enroll', enrollData)
-    .then(res => {
-      if (res.data.action === 'added') {
-        Swal.fire({
-          icon: 'success',
-          title: 'Enrolled successfully!',
-          timer: 2000,
-          showConfirmButton: false
-        });
-        setIsEnrolled(true);
-     
-      } else if (res.data.action === 'removed') {
-        Swal.fire({
-          icon: 'warning',
-          title: 'Unenrolled from the course Successfull.',
-          timer: 2000,
-          showConfirmButton: false
-        });
-        setIsEnrolled(false);
-     
-      }
-    })
-    .catch(err => {
-      Swal.fire({
-        icon: 'error',
-        title: err.response?.data?.message || 'Action failed'
-      });
-    });
-};
+    const handleToggleEnroll = () => {
+        const enrollData = {
+            courseId: _id,
+            email: user.email,
+            title,
+            description
+        };
+
+        axios.post('http://localhost:3000/courses-toggle-enroll', enrollData)
+            .then(res => {
+                if (res.data.action === 'added') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Enrolled successfully!',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                    setIsEnrolled(true);
+                        setTotalEnrollments((prev) => prev + 1);
+
+                } else if (res.data.action === 'removed') {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Unenrolled from the course Successfull.',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                    setIsEnrolled(false);
+                      setTotalEnrollments((prev) => prev - 1);
+                }
+            })
+            .catch(err => {
+                Swal.fire({
+                    icon: 'error',
+                    title: err.response?.data?.message || 'Action failed'
+                });
+            });
+    };
 
 
     if (!course) {
@@ -76,24 +95,28 @@ const CourseDetails = () => {
                 <p className="text-gray-600">Instructor: {instructor}</p>
                 <p className="text-gray-500">Duration: {duration} hours</p>
                 <p>{description}</p>
-           {!user?.email ? (
-  <>
-    <button disabled className="bg-gray-400 cursor-not-allowed text-white px-4 py-2 rounded">
-      Enroll Now
-    </button>
-    <p className="text-sm text-red-500 mt-2">Please login to enroll in this course.</p>
-  </>
-) : (
-  <>
-    <button
-      onClick={handleToggleEnroll}
-      className={`px-4 py-2 rounded text-white ${isEnrolled ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'}`}
-    >
-      {isEnrolled ? 'Unenroll' : 'Enroll Now'}
-    </button>
-  
-  </>
-)}
+                {!user?.email ? (
+                    <>
+                        <button disabled className="bg-gray-400 cursor-not-allowed text-white px-4 py-2 rounded">
+                            Enroll Now
+                        </button>
+                        <p className="text-sm text-red-500 mt-2">Please login to enroll in this course.</p>
+                    </>
+                ) : (
+                    <>
+                        <button
+                            onClick={handleToggleEnroll}
+                            disabled={disableEnroll}
+                            className={`px-4 py-2 rounded text-white ${isEnrolled ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'} ${disableEnroll ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        >
+                            {isEnrolled ? 'Unenroll' : 'Enroll Now'}
+                        </button>
+                        {disableEnroll && !isEnrolled && (
+                            <p className="text-sm text-red-500 mt-2">You have reached the maximum of 3 enrolled courses.</p>
+                        )}
+                    </>
+                )}
+
 
             </div>
         </div>
