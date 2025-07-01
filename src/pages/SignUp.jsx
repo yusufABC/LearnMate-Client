@@ -92,25 +92,7 @@ const Signup = () => {
 
     }
 
-    const handleGoogleSubmit = () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-            .then(result => {
-                setUser(result.user);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Logged in with Google successfully!",
-                    showConfirmButton: false,
-                    timer: 3000
-                });
-                navigate('/');
-            })
-            .catch(error => {
-                console.log('Google login error:', error.message);
-            });
-    };
-
+ 
 
     return (
         <div className="[font-family:'Poppins',sans-serif] hero min-h-screen mx-auto">

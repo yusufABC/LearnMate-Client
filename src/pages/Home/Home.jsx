@@ -5,7 +5,6 @@ import CoursesSec from './CourseLoad/CoursesSec';
 import Students from './StudentReviewsec/Students';
 import HowItWorks from './HowItWorks';
 import PopularCardsSec from './PopularCardsSec';
-import { div } from 'framer-motion/client';
 
 
 
