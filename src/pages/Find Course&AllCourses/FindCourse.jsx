@@ -4,13 +4,26 @@ import FindCourseLoad from './FindCourseLoad';
 
 const FindCourse = () => {
     const [courses, setCourses] = useState([])
+      const [loading,setLoading]=useState(true)
     useEffect(() => {
-        axios.get('https://assignment-11-server-sigma-one.vercel.app/courses')
-            .then(res => setCourses(res.data)
+        axios.get('https://assignment-11-server-sigma-one.vercel.app/courses-all')
+            .then(res =>{ setCourses(res.data)
+                 setLoading(false)
+            }
+            
             )
 
     }, [])
-
+ if(loading ){
+        return <div className="flex items-center justify-center min-h-screen">
+      <div className="flex gap-2">
+        <span className="loading loading-ring loading-xl"></span>
+        <span className="loading loading-ring loading-xl"></span>
+        <span className="loading loading-ring loading-xl"></span>
+        <span className="loading loading-ring loading-xl"></span>
+      </div>
+    </div>
+    }
     return (
         <>
        

@@ -11,7 +11,7 @@ const PopularCardsSec = () => {
         .then(res=>setCourses(res.data))
     },[])
     return (
-          <div className="grid  justify-items-center   grid-cols-1 md:grid-cols-3 gap-6 ">
+          <div className="grid  justify-items-center   grid-cols-1 md:grid-cols-4 gap-6 ">
       {courses.slice(0, 6).map(course => (
         <div className="max-w-sm bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <img src={course.imageUrl}alt={course.title}className="w-full h-48 object-cover"/>

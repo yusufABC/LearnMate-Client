@@ -1,10 +1,10 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import Banner from './Banner';
 import axios from 'axios';
-import CoursesSec from './CourseLoad/CoursesSec';
 import Students from './StudentReviewsec/Students';
 import HowItWorks from './HowItWorks';
 import PopularCardsSec from './PopularCardsSec';
+import CoursesSec from './Latest Course Section/CoursesSec';
 
 
 

@@ -4,10 +4,10 @@ import Course from './Course';
 const CoursesSec = ({courses}) => {
     return (
 
-        <div className='bg-gray-50 '>
+        <div className=' '>
         <h2 className='md:text-5xl text-center my-10'>Our Latest Courses Explore Now !</h2>
         
-        <div className='grid md:grid-cols-3 gap-5 justify-center '>
+        <div className='grid md:grid-cols-4 gap-5 justify-center '>
             {
                 courses.map(course=><Course key={course._id}  course={course}></Course>)
             }

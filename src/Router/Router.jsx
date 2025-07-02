@@ -11,10 +11,11 @@ import AddCourse from '../pages/AddCourse';
 import EditCourse from '../pages/EditCourse';
 import CourseDetails from '../pages/CourseDetails/CourseDetails';
 import Home from '../pages/Home/Home';
-import FindCourse from '../pages/Find Course/FindCourse';
 import ManageCourse from '../pages/Manage Courses/ManageCourse';
 import MyEnrolledCourses from '../pages/MyEnrolledCourses';
 import NotFound from '../pages/NotFound';
+import AllCourses from '../pages/Find Course&AllCourses/AllCourses';
+import FindCourse from '../pages/Find Course&AllCourses/FindCourse';
 
 export const router = createBrowserRouter([
 
@@ -39,6 +40,11 @@ export const router = createBrowserRouter([
       {
         path:'findCourse',
         Component:FindCourse
+
+      },
+      {
+        path:'allCourses',
+        Component:AllCourses
 
       },
  

@@ -79,6 +79,11 @@ const navigate=useNavigate()
              <NavLink to={'/findCourse'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
                             }> Find Course</NavLink>
+
+
+             <NavLink to={'/allcourses'} className={({ isActive }) =>
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
+                            }> All Course</NavLink>
          
 
 
