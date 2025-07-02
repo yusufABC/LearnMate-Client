@@ -5,6 +5,8 @@ import Students from './StudentReviewsec/Students';
 import HowItWorks from './HowItWorks';
 import PopularCardsSec from './PopularCardsSec';
 import CoursesSec from './Latest Course Section/CoursesSec';
+import AnimatedHeading from './Reusable animations/AnimatedHeading';
+import AnimatedWrapper from './Reusable animations/AnimatedWrapper';
 
 
 
@@ -48,26 +50,39 @@ const Home = () => {
             
                   <Banner className=' w-full'></Banner>
             <div className='my-10  max-w-11/12 mx-auto'>
+            <AnimatedHeading className="text-5xl font-bold text-center my-15 ">Our Latest Courses Explore Now !</AnimatedHeading>
+            <AnimatedWrapper>
+
                 <Suspense fallback={<span className="loading loading-bars loading-md"></span>}>
                     <CoursesSec key={courses._id} courses={courses}></CoursesSec>
                 </Suspense>
+            </AnimatedWrapper>
                 
             </div>
 
                <div>
-      <h1 className="text-5xl font-bold text-center my-15 ">🔥Popular Courses</h1>
+      <AnimatedHeading className="text-5xl font-bold text-center my-15 ">🔥Popular Courses</AnimatedHeading>
+      <AnimatedWrapper>
+
      <PopularCardsSec></PopularCardsSec>
+      </AnimatedWrapper>
     </div>
 
 
             <div className='mt-10'>
+      <AnimatedHeading className="text-5xl font-bold text-center my-15 ">What Our Students Say</AnimatedHeading>
+<AnimatedWrapper>
+
                 <Suspense fallback={<span className="loading loading-bars loading-md"></span>}>
                     <Students students={students}></Students>
                 </Suspense>
+</AnimatedWrapper>
 
             </div>
 
             <div>
+                  <AnimatedHeading  className="text-5xl font-bold text-center my-15 ">How LearnMate Works</AnimatedHeading>
+               
                 <HowItWorks></HowItWorks>
             </div>
         </>

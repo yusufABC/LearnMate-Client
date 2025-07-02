@@ -5,7 +5,7 @@ const CoursesSec = ({courses}) => {
     return (
 
         <div className=' '>
-        <h2 className='md:text-5xl text-center my-10'>Our Latest Courses Explore Now !</h2>
+    
         
         <div className='grid md:grid-cols-4 gap-5 justify-center '>
             {

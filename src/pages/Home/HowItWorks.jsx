@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { BookOpen, UserPlus, ClipboardList, Star } from "lucide-react";
+import AnimatedWrapper from './Reusable animations/AnimatedWrapper';
 
 const steps = [
   {
@@ -30,14 +31,7 @@ const HowItWorks = () => {
     return (
          <section className="py-20 bg-gray-50  ">
       <div className="max-w-5xl  mx-auto text-center">
-        <motion.h2
-          className="text-4xl font-bold mb-6"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          How LearnMate Works
-        </motion.h2>
+
         <motion.p
           className="text-gray-600 mb-12 max-w-xl mx-auto"
           initial={{ opacity: 0 }}
@@ -49,18 +43,11 @@ const HowItWorks = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-md"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex justify-center mb-4">{step.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-600 text-sm">{step.desc}</p>
-            </motion.div>
+           <AnimatedWrapper key={index} index={index}>
+    <div className="flex justify-center mb-4">{step.icon}</div>
+    <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+    <p className="text-gray-600 text-sm">{step.desc}</p>
+  </AnimatedWrapper>
           ))}
         </div>
       </div>

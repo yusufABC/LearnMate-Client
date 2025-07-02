@@ -29,12 +29,12 @@ const AllCourses = () => {
          <>
              
                   <h2 className='text-5xl text-blue-400 text-center my-15'>All Available Courses</h2>
-              <div className='grid md:grid-cols-3 justify-items-center gap-6 my-15 md:my-10'>
+              <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6 my-15 md:my-10'>
                   <Suspense fallback={<h2>Loading Hot Course</h2>}>
                   
                       {
-                          courses.map(course => (
-                              <AllCoursesLoad key={course._id} course={course} />
+                          courses.map((course,index) => (
+                              <AllCoursesLoad key={index} index={index} course={course} />
                           ))
                       }
                   </Suspense>

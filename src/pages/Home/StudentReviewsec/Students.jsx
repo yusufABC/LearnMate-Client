@@ -15,9 +15,9 @@ const Students = ({students}) => {
     autoplaySpeed: 5000,}
     return (
         <div>
-                <section className="bg-gray-50 py-16 px-4 md:px-8">
+                <section className=" py-16 px-4 md:px-8">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-10">What Our Students Say</h2>
+       
         <Slider {...settings}>
           {students.map((student) => (
             <StudentCard key={student._id} student={student}  />
