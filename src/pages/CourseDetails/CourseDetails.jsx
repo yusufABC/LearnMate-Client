@@ -9,7 +9,7 @@ const CourseDetails = () => {
     const { user } = UseAuth();
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [totalEnrollments, setTotalEnrollments] = useState(0);
-    const { _id, title, description, imageUrl, instructor, duration } = course;
+    const { _id, title, description, imageUrl,price, instructor, duration } = course;
 
 
     useEffect(() => {
@@ -45,7 +45,8 @@ const CourseDetails = () => {
             courseId: _id,
             email: user.email,
             title,
-            description
+            description,
+            price
         };
 
         axios.post('https://assignment-11-server-sigma-one.vercel.app/courses-toggle-enroll', enrollData)

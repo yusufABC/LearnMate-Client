@@ -101,7 +101,16 @@ console.log(loadedPost)
                         />
                     </div>
 
-
+   <div className=''>
+                        <label className=" text-sm font-medium text-gray-700">Price</label>
+                        <input
+                            type="number"
+                            name="price"
+                            placeholder="input your course price $10"
+                            className="mt-1 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                            required
+                        />
+                    </div>
 
 
                     <div>
