@@ -188,15 +188,9 @@ const {user,handleSignOut}=use(AuthContext)
                         className="flex items-center gap-2 px-4 py-2 text-sm text-gray-800 hover:bg-base-300 transition"
                       >
                         <FaTachometerAlt className="text-gray-500" />
-                        Dashboard
+                        Dashboard 
                       </Link>
-                      <Link
-                        to="/MyProfile"
-                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-800 hover:bg-base-300 transition"
-                      >
-                        <FaTachometerAlt className="text-gray-500" />
-                        My Profile
-                      </Link>
+                  
 
                       {/* Logout Button */}
                       <button
