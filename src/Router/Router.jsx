@@ -134,6 +134,26 @@ export const router = createBrowserRouter([
          <ManageCourse></ManageCourse>
         </PrivateRoute>
       },
+           {
+        path: 'myEnrollment',
+        element: <PrivateRoute>
+         <MyEnrolledCourses></MyEnrolledCourses>
+        </PrivateRoute>
+      },
+          {
+        path:'findCourse',
+        Component:FindCourse
+
+      },
+
+                  {
+        path: 'profile',
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
 
     ]
 
