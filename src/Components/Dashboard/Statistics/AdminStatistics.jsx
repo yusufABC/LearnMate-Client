@@ -44,7 +44,7 @@ const AdminStatistics = () => {
             <div className="absolute -top-6 left-6 grid h-16 w-16 place-items-center rounded-xl bg-gradient-to-tr from-pink-600 to-pink-400 text-white shadow-lg shadow-pink-500/40">
               <BsFillHouseDoorFill className="w-7 h-7" />
             </div>
-            <p className="text-sm font-medium text-gray-500">Total Plants</p>
+            <p className="text-sm font-medium text-gray-500">Total Courses</p>
             <h4 className="mt-1 text-3xl font-bold text-gray-900">325</h4>
             <div className="flex items-center gap-2 text-green-600 mt-2 text-sm font-semibold">
               <FaArrowUp />
