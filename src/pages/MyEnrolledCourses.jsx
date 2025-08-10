@@ -62,7 +62,13 @@ const MyEnrolledCourses = () => {
     };
 
     return (
-        <table
+ <>
+ {
+    enrollments.length === 0 ? <>
+    <h2 className='flex justify-center items-center h-screen text-4xl '>Please Enroll a Course</h2>
+    </>:
+    <div className='min-h-screen'>
+     <table
             className="my-20 table-auto text-center w-full"
             style={{ borderCollapse: 'separate', borderSpacing: '0 10px' }}
         >
@@ -94,6 +100,9 @@ const MyEnrolledCourses = () => {
                 ))}
             </tbody>
         </table>
+    </div>
+ }
+ </>
     );
 };
 

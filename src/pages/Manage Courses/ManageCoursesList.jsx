@@ -48,7 +48,7 @@ const navigate=useNavigate()
 
   return (
     <div>
-      <h2 className='my-10 text-4xl'>You have added Courses :{courses.length}</h2>
+      <h2 className='my-10 text-4xl'>You have added Courses : {courses.length}</h2>
       <table className='my-10 min-w-full table-auto border border-gray-200'>
         <thead>
           <tr>

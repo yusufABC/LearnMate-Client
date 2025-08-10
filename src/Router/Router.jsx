@@ -16,6 +16,9 @@ import MyEnrolledCourses from '../pages/MyEnrolledCourses';
 import NotFound from '../pages/NotFound';
 import AllCourses from '../pages/Find Course&AllCourses/AllCourses';
 import FindCourse from '../pages/Find Course&AllCourses/FindCourse';
+import DashboardLayout from '../Layout/DashboardLayout';
+import Statistics from '../pages/Dashboard/Common/Statistics';
+import Profile from '../pages/Dashboard/Common/Profile';
 
 export const router = createBrowserRouter([
 
@@ -83,9 +86,58 @@ export const router = createBrowserRouter([
         </PrivateRoute>
       },
 
+            {
+        path: 'profile',
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+  
+
+
+    ],
+
+ 
+
+ 
+  },
+
+  {
+    path:'dashboard',
+    element:<PrivateRoute>
+      <DashboardLayout></DashboardLayout>
+    </PrivateRoute>,
+    children:[
+      {
+        index:true,
+             element: (
+          <PrivateRoute>
+            <Statistics />
+          </PrivateRoute>
+        ),
+
+        
+      },
+
+          {
+        path: 'addCourse',
+        element: <PrivateRoute>
+          <AddCourse></AddCourse>
+        </PrivateRoute>
+      },
+
+         {
+        path: 'manageCourse',
+        element: <PrivateRoute>
+         <ManageCourse></ManageCourse>
+        </PrivateRoute>
+      },
 
     ]
-  },
+
+  }
 ]);
 
 

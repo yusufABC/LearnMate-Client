@@ -49,7 +49,8 @@ const Home = () => {
         <>
             
                   <Banner className=' w-full'></Banner>
-            <div className='my-10  max-w-11/12 mx-auto'>
+                  <div className='max-w-11/12 mx-auto'>
+            <div className='my-10 '>
             <AnimatedHeading className="text-5xl font-bold text-center my-15 ">Our Latest Courses Explore Now !</AnimatedHeading>
             <AnimatedWrapper>
 
@@ -60,7 +61,7 @@ const Home = () => {
                 
             </div>
 
-               <div>
+               <div >
       <AnimatedHeading className="text-5xl font-bold text-center my-15 ">🔥Popular Courses</AnimatedHeading>
       <AnimatedWrapper>
 
@@ -85,6 +86,8 @@ const Home = () => {
                
                 <HowItWorks></HowItWorks>
             </div>
+                  </div>
+
         </>
     );
 };

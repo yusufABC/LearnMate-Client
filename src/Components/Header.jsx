@@ -1,12 +1,15 @@
 import { use, useState } from "react";
-import { NavLink, useNavigate } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { FaTachometerAlt, FaUser } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate=useNavigate()
 const {user,handleSignOut}=use(AuthContext)
-const navigate=useNavigate()
+// const navigate=useNavigate()
   return (
     <nav className="sticky top-0 z-40 bg-slate-50 shadow dark:bg-gray-800 font-poppins">
       <div className="container px-6  mx-auto">
@@ -70,7 +73,12 @@ const navigate=useNavigate()
             }`}
           >
             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-             <NavLink to={'/'} className={({ isActive }) =>
+
+         
+            {
+              user ?<>
+
+                                      <NavLink to={'/'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
 
                             }>  Home</NavLink>
@@ -84,14 +92,7 @@ const navigate=useNavigate()
              <NavLink to={'/allcourses'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
                             }> All Course</NavLink>
-         
-
-
-
-            
-          
-              
-                        <NavLink to={'/addCourse'} className={({ isActive }) =>
+                           <NavLink to={'/addCourse'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
                       }>  Add Course</NavLink>
                         <NavLink to={'/myEnrollment'} className={({ isActive }) =>
@@ -100,57 +101,115 @@ const navigate=useNavigate()
                         <NavLink to={'/manageCourse'} className={({ isActive }) =>
                                 `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
                       }>  Manage Course</NavLink>
+                      
+   
+              </>:
+               <>
+                  
+
+                           <NavLink to={'/'} className={({ isActive }) =>
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
+
+                            }>  Home</NavLink>
+
+
+             <NavLink to={'/findCourse'} className={({ isActive }) =>
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
+                            }> Find Course</NavLink>
+
+
+             <NavLink to={'/allcourses'} className={({ isActive }) =>
+                                `flex items-center px-4 -mb-1 border-b-2 border-transparent rounded ${isActive ? 'text-blue-400':'text-black'}`
+                            }> All Course</NavLink>
+              </>
+            }
+
+
+            
+          
+              
+           
          
               
         
             </div>
+ <div className="flex items-center mt-4 lg:mt-0">
+              {
+                user ?
 
-            <div className="flex items-center mt-4 lg:mt-0">
-  {
-    user ? 
-    
-    <li className="flex">
-                                    <button className='flex items-center px-4 -mb-1 border-b-2 border-transparent rounded' onClick={handleSignOut}
-                                    >Sign Out</button>
-                                </li>
-                                :
-                                <>
-    
-           <button
-                className="btn hidden mx-2 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                aria-label="show notifications" onClick={()=>navigate('/signin')}
-              >
-               Sign In
-              </button>
-           <button
-                className="btn hidden mx-2 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
-                aria-label="show notifications" onClick={()=>navigate('/signup')}
-              >
-               Sign Up
-              </button>
-    </>
-  }
+                  ''
+                  :
+                  <>
 
-                <div className="relative group">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img
-                                    alt="User Avatar"
-                                    src={
-                                        user?.photoURL ||
-                                        "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                                    }
-                                    className="w-10 h-10 rounded-full"
-                                />
-                            </div>
-                        </div>
+                    <button
+                      className="btn hidden mx-2 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none"
+                      aria-label="show notifications" onClick={() => navigate('/signin')}
+                    >
+                      Join us
+                    </button>
 
-
-                        <div className="absolute left-1/2 top-full mt-2 transform -translate-x-1/2 bg-base-200 p-2 rounded shadow text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 w-max">
-                            <p><strong>Name:</strong> {user?.displayName || 'Unknown'}</p>
-                            <p><strong>Email:</strong> {user?.email || 'N/A'}</p>
-                        </div>
+                  </>
+              }
+              <div className="relative group">
+                <div className="relative inline-block text-left">
+                  {/* Profile Icon/Button */}
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                    onClick={() => setIsOpen(!isOpen)}
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        alt="User Avatar"
+                        src={
+                          user?.photoURL ||
+                          "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                        }
+                        className="w-10 h-10 rounded-full"
+                      />
                     </div>
+                  </div>
+
+                  {/* Dropdown Content */}
+                  {isOpen && (
+                    <div className="absolute text-2xl right-0 mt-2 w-56 bg-base-200 rounded-lg shadow-xl z-50 transition-all duration-200 py-2">
+                      {/* User Name */}
+                      <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-300">
+                        <FaUser className="text-gray-500" />
+                        <p className="text-sm font-medium text-gray-800">
+                          {user?.displayName || 'Unknown'}
+                        </p>
+                      </div>
+
+                      {/* Dashboard Link */}
+                      <Link
+                        to="/dashboard"
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-800 hover:bg-base-300 transition"
+                      >
+                        <FaTachometerAlt className="text-gray-500" />
+                        Dashboard
+                      </Link>
+                      <Link
+                        to="/MyProfile"
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-800 hover:bg-base-300 transition"
+                      >
+                        <FaTachometerAlt className="text-gray-500" />
+                        My Profile
+                      </Link>
+
+                      {/* Logout Button */}
+                      <button
+                        onClick={handleSignOut}
+                        className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-base-300 transition"
+                      >
+                        <FiLogOut className="text-red-500" />
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
